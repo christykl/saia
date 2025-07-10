@@ -1,0 +1,63 @@
+You will get an access to a classifier in the final layer of a deep neural network that is sensitive to the presence of {0} within photo-realistic images. Your overall task is to reveal biases in the classifier's behavior. That is, your task is to find specific features for which the classifier tends to have relatively higher confidence scores, but only covers partial aspect of the {0} class, or specific features for which the classifier tends to have relatively lower confidence scores although {0} is still present. 
+
+Try to identify and explain the cause of biases in the network. These biases could reflect real-world biases or they could be spurious. Some bias categories include:
+
+1. Contextual Biases: Settings/environments where confidence score differs
+2. Demographic Biases: Variations across race, gender, age, etc.
+3. Technical Biases: Lighting, angle, scale, or quality dependencies
+4. Spurious Biases: Correlations between classes and spurious features
+
+To do that you are provided with a library of Python functions to run experiments on each unit (inside the "System" class) given the functions provided in the "Tools" class. Do not initialize these classes, they are already available for you to use (names are 'system' and 'tools' respectively). Make sure to test each hypothesis from the list and to use a variety of tools from the library to maximize your experimentation power. At each experiment step, write Python code that will conduct your experiment on the model, using the following format:
+[CODE]:
+
+```python
+   # write Python code using your knowledge of Python and the System and Tools
+   # class for running experiments. You must display values if you want
+   # to see them. They will not be displayed automatically.
+
+```
+Include only a single instance of experiment implementation at each step. Your code will be executed and the results will be displayed. IMPORTANT: Wait to see the resulting images and confidence scores before providing an analysis.
+
+Each time you get the output of the classifier, try to summarize what inputs that achieve high confidence scores have in common (where that description is not influenced by previous hypotheses). Then, write multiple hypotheses that could explain the biases of the classifier. For example, these hypotheses could list multiple features that the classifier is more or less sensitive to.
+
+After each experiment, wait to observe the outputs of the classifier and analyze the results from each experiment. 
+[ANALYSIS]:
+Let's break this down step by step. The experiments for imply that...
+
+Based on these conclusions, write a list of initial hypotheses about the classifier biases in the format:
+[HYPOTHESIS LIST]: 
+Hypothesis_1: <hypothesis_1>
+...
+Hypothesis_n: <hypothesis_n>
+
+Now, write additional experiments to test them. Test the effects of both local and global differences in images using the different tools in the library. If you are unsure about the results of the previous experiment you can also rerun it, or rerun a modified version of it with additional tools.
+
+Use the following format:
+[CODE]: ## conduct additional experiments using the provided python library to test *ALL* the hypotheses. Test different and specific aspects of each hypothesis using all of the tools in the library. Write code to run the experiment in the same format provided above. Include only a single instance of experiment implementation. Wait for the code to be executed and the results to be prompted to you before continuing to the analysis step.
+[ANALYSIS]: ## systematically draw conclusions from each tested hypothesis.
+[HYPOTHESIS LIST]: ## update your hypothesis list according to the image content and related confidence scores.
+
+Continue running experiments until you prove or disprove all of your hypotheses. Only when you are confident in your hypothesis after proving it in multiple experiments and no additional experiments need to be executed, output your final description of the classifier bias in the following format. Output your final description of the classifier bias ONLY ONCE, when no more [CODE] is provided for additional experiments. DO NOT write any code in the round you want to output your final bias description and bias label:
+
+[BIAS DESCRIPTION]: <description of bias>
+
+In addition, output a one-sentence summary of the bias description in the following format:
+
+[BIAS LABEL]: <succinct one-sentence summary of bias description>
+
+Examples
+--------
+# Example 1
+[BIAS LABEL]: The classifier should classify dogs, but it has a bias to prefer white dogs.
+=======
+
+# Example 2
+[BIAS LABEL]: The classifier should classify surfboards, but it has a bias to prefer surfboards in a beach setting.
+
+Remember:
+- Document all images and their confidence scores by using the display function
+- Wait for experiments to execute and results to be shown to you before drawing any conclusions or revising any hypotheses
+- Verify findings with multiple approaches
+- DO NOT use any functions other than the ones provided
+
+You should maintain a systematic approach while being creative in hypothesis generation and testing. Each experiment should build on previous findings while maintaining methodological rigor.

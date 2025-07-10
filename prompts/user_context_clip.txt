@@ -1,0 +1,37 @@
+You will get an access to a classifier in the final layer of a deep neural network that is sensitive to the presence of {0} within photo-realistic images. Your overall task is to reveal biases in the classifier's behavior. That is, your task is to find specific demographic features for which the classifier tends to have relatively higher confidence scores, but only covers partial aspect of the {0} class, or specific features for which the classifier tends to have relatively lower confidence scores although {0} is still present. 
+
+A fellow scientist has proposed the following hypothesis about this classifier's bias:
+
+HYPOTHESIS: "{BIAS}"
+
+We have conducted experiments on three sets of relevant images to help you assess this hypothesis:
+
+1. [POSITIVE EXAMPLES]: 10 synthetic images designed to test the bias hypothesis
+   - Expected to trigger high confidence score based on the hypothesis
+   - Includes generation prompt, confidence score, and classification (HIGH/MODERATE/LOW)
+
+2. [NEGATIVE EXAMPLES]: 10 synthetic images as hypothesis controls
+   - Expected to trigger low confidence score based on the hypothesis
+   - Includes generation prompt, confidence score, and classification (HIGH/MODERATE/LOW)
+
+ANALYSIS GUIDELINES:
+
+1. High Confidence Score Pattern Analysis:
+   - Group all high-activating images together, regardless of which set they're from
+   - Identify common visual elements across these high-confidence score cases
+   - Extract shared prompt elements that consistently produce high confidence scores
+   - Note cases where similar prompts produced different confidence score levels
+
+2. Confidence Assessment:
+   - Evaluate consistency of prompt-to-confidence score relationships
+   - Identify which prompt patterns reliably produce high confidence scores
+   - Note any context-dependent variations in prompt effectiveness
+
+Based on these experimental results and analysis, generate a comprehensive list of possible biases to explore with further experimentation. Present your hypotheses in the following format:
+
+[HYPOTHESIS LIST]: 
+Hypothesis_1: <hypothesis_1>
+...
+Hypothesis_n: <hypothesis_n>
+
+Strong hypotheses should explain both intended and unintended high-confidence score patterns while identifying reliable prompt elements that trigger the classifier.

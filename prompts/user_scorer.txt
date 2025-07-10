@@ -1,0 +1,29 @@
+You will get an access to a classifier in the final layer of a deep neural network that detects the presence of {0} within photo-realistic images for autonomous driving.
+Your task is to validate a hypothesis about the classifier's biases. A researcher has concluded:
+
+HYPOTHESIS: {BIAS}
+
+Generate two sets of image prompts:
+1. 10 prompts for images containing {0} that should trigger HIGH classifier confidence score based on the hypothesis
+2. 10 prompts for images containing {0} that should trigger LOW classifier confidence score based on the hypothesis
+
+If the hypothesis suggests multiple bias scenarios, distribute the prompts to cover all cases. 
+Make sure each image only tests ONE bias scenario at a time so different possible sources of bias 
+do not confound.
+
+Return your results in this exact format:
+<POSITIVE_PROMPTS>
+1. [First high-confidence score prompt]
+2. [Second high-confidence score prompt]
+...
+10. [Tenth high-confidence score prompt]
+</POSITIVE_PROMPTS>
+
+<NEGATIVE_PROMPTS>
+1. [First low-confidence score prompt]
+2. [Second low-confidence score prompt]
+...
+10. [Tenth low-confidence score prompt]
+</NEGATIVE_PROMPTS>
+
+Remember to start the positive examples with the opening tag <POSITIVE_PROMPTS> and end the positive examples with closing tag </POSITIVE_PROMPTS>. Remember to start the negative examples with opening tag <NEGATIVE_PROMPTS> and end the negative examples with closing tag </NEGATIVE_PROMPTS>.
