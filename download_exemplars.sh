@@ -10,3 +10,4 @@ wget -P ./exemplars data.csail.mit.edu/maia-exemplars/setting.zip
 unzip ./exemplars/setting.zip -d ./exemplars/
 wget -P ./exemplars data.csail.mit.edu/maia-exemplars/state.zip
 unzip ./exemplars/state.zip -d ./exemplars/
+rm ./exemplars/*.zip

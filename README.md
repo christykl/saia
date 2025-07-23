@@ -8,67 +8,15 @@
 We use a Self-reflective Automated Interpretability Agent (SAIA) to produce natural-language descriptions of the visual attributes that a model relies on to recognize or detect a given concept. For each target concept (e.g., *vase*, *teacher*, or *pedestrian*), the agent first conducts hypothesis testing to reach a candidate description and then validates the description's predictiveness of actual model behavior through a self-evaluation protocol. The top row shows the agent’s generated explanations. The bottom rows show images predicted to elicit high (green) or low (red) scores, along with their actual model confidence scores. Results are shown for different target concepts across an object recognition model with a controlled attribute reliance (left), CLIP (middle), and YOLOv8 (right).
 
 ## Installations ##
-### General Dependencies ###
-Clone this repo and create a conda environment:
+After cloning this repo, simply run
 ```bash
-git clone https://github.com/christykl/saia.git
-cd saia
-conda create -n saia_env python=3.10 --file conda_packages.txt -c nvidia
-conda activate saia_env
+bash install.sh
 ```
 
-Install packages and dependencies
-```bash
-pip install -r torch_requirements.txt
-pip install -r requirements.txt
-pip install -r torch_requirements.txt --force-reinstall
-pip install git+https://github.com/huggingface/transformers.git
-```
-
-Install InstructDiffusion and Flux
-```bash
-cd utils
-git clone https://github.com/cientgu/InstructDiffusion.git
-pip install -r requirements_instdiff_flux.txt
-cd InstructDiffusion
-bash scripts/download_pretrained_instructdiffusion.sh
-cd ../../
-```
-### Set Up Attribute Reliance Detection Benchmark Models ###
-Set environment variables for SAM and Grounding DINO
-```bash
-export AM_I_DOCKER="False"
-export BUILD_WITH_CUDA="True"
-export CUDA_HOME=$(dirname "$(dirname "$(which nvcc)")")
-export CC=$(which gcc-12)
-export CXX=$(which g++-12)
-```
-
-Install SAM and Grounding DINO
-```bash
-pip install git+https://github.com/facebookresearch/segment-anything.git
-pip install git+https://github.com/IDEA-Research/GroundingDINO.git
-```
-
-Download model checkpoints
-```bash
-cd utils/Grounded-Segment-Anything
-
-# Segment Anything (SAM)
-wget "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
-
-# Grounding DINO
-wget "https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth"
-
-cd ../../
-```
-
-Download precomputed exemplars for the attribute reliance benchmark models:
+To download precomputed exemplars for the attribute reliance benchmark models, run
 ```bash
 bash download_exemplars.sh
 ```
-
-If you want to use the demographic attribute reliant models, download the FairFace models from [here](https://drive.google.com/drive/folders/1F_pXfbzWvG-bhCpNsRj6F_xsdjpesiFu?usp=sharing) into the ```./FairFace/``` folder.
 
 ## Quick Start ##
 You can run demo experiments on individual units using ```demo.ipynb```:
