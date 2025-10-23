@@ -1,11 +1,13 @@
 # Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent #
-## ICML 2025 Workshop on Actionable Interpretability ##
+### NeurIPS 2025 ###
+
+### [Project Page](https://christykl.github.io/saia-website/)
 
 [Christy Li](https://christykl.github.io/), [Josep Lopez Camuñas](https://yusepp.github.io/), [Jake Touchet](https://www.linkedin.com/in/jake-touchet-557329297/), [Jacob Andreas](https://www.mit.edu/~jda/), [Agata Lapedriza Garcia](https://s3.sunai.uoc.edu/web/agata/index.html), [Antonio Torralba](https://groups.csail.mit.edu/vision/torralbalab/), [Tamar Rott Shaham](https://tamarott.github.io/)
 
 <img src="assets/teaser.jpg" alt="figure 1">
 
-We use a Self-reflective Automated Interpretability Agent (SAIA) to produce natural-language descriptions of the visual attributes that a model relies on to recognize or detect a given concept. For each target concept (e.g., *vase*, *teacher*, or *pedestrian*), the agent first conducts hypothesis testing to reach a candidate description and then validates the description's predictiveness of actual model behavior through a self-evaluation protocol. The top row shows the agent’s generated explanations. The bottom rows show images predicted to elicit high (green) or low (red) scores, along with their actual model confidence scores. Results are shown for different target concepts across an object recognition model with a controlled attribute reliance (left), CLIP (middle), and YOLOv8 (right).
+We introduce the Self-reflective Automated Interpretability Agent (SAIA), a fully automated framework designed to detect visual attribute reliance in pretrained vision models. Given a pretrained model and a target visual concept (e.g., an image classifier selective for the object `vase`), SAIA identifies specific image features that systematically influence the model’s predictions, even when these features fall outside the model’s intended behavior (e.g., *the classifier relies on flowers to detect the vase*). At the core of our approach is a LM-based self-reflective agent that treats the task as a scientific discovery process. Rather than relying on a predefined set of candidate attributes, SAIA autonomously formulates hypotheses about image features that the model might rely on, designs targeted tests, and updates its beliefs based on observed model behavior. After generating an initial finding, SAIA actively evaluates how well it matches the model’s behavior on unseen test cases. If discrepancies arise during the self-evaluation, SAIA reflects on its assumptions, identifies gaps or inconsistencies in its current understanding, and initiates a new hypothesis testing loop.
 
 ## Installations ##
 After cloning this repo, simply run
